@@ -22,3 +22,17 @@ I picked Logistic Regression because it achieved the highest AUC (0.7982) and F1
 
 ## What I would check next
 I would check the model performance on different customer groups, especially groups with few customers, to make sure the model does not perform poorly for some types of customers.
+## Deployment lineage
+
+The deployed Docker image is tagged with the Git commit SHA to make it easier to trace the deployment.
+
+- **Git commit SHA:** `e242de2`
+- **Docker image:** `churn-api:e242de2`
+- **MLflow run ID:** `f3e52c06717c40ffb05ec198d1f84fcf`
+- **MLflow model version:** `1`
+- **Model:** Logistic Regression
+- **Deployment:** Local Docker
+- **Service URL:** `http://localhost:8000`
+
+The image tag links the Docker image to the Git commit, while the MLflow run ID identifies the training run that produced the selected model. This provides traceability between the code, model training, and deployment.
+

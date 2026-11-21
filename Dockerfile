@@ -19,8 +19,10 @@ RUN if [ -f artifacts/model.joblib ]; then \
 
 # ---- Stage 2: a small runtime image, no build tools, not root ----
 FROM python:3.12.15-slim-trixie
+ARG GIT_SHA=local
 LABEL org.opencontainers.image.title="ai381-churn-starter" \
-      org.opencontainers.image.description="AI381 Machine Learning Operations churn API starter"
+      org.opencontainers.image.description="AI381 Machine Learning Operations churn API starter" \
+      org.opencontainers.image.revision="${GIT_SHA}"
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 MODEL_DIR=/app/models
 RUN useradd --create-home --uid 10001 app
 WORKDIR /app
